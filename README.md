@@ -39,7 +39,7 @@ Write down each step needed to solve the problem. For example:
 ### 4. Create the Flow Diagram
 A flow diagram helps visualize these steps. Here's an example breakdown for a simple calculator:
 
-![Python Logo](https://www.visual-paradigm.com/servlet/editor-content/tutorials/flowchart-tutorial/sites/7/2018/09/flowchart-example.png)
+![Python Logo](https://www.visual-paradigm.com/servlet/editor-content/tutorials/flowchart-tutorial/sites/7/2018/09/flowchart-example-simple-algorithms.png)
 
 
 ## Generating an SSH Key

@@ -12,8 +12,10 @@ Once you've forked the repo, clone it to your local machine.
 
 ```bash
 git clone https://github.com/your-username/code-crunch-marathon.git
+```
 
 ## Problem Solving: Breaking Down a Problem with Flow Diagrams
+
 
 Before you start coding, it's important to break down a problem into smaller, manageable steps. One way to do this is through **flow diagrams**. Below is an explanation on how to break down a problem and structure it visually:
 
@@ -38,4 +40,23 @@ Write down each step needed to solve the problem. For example:
 A flow diagram helps visualize these steps. Here's an example breakdown for a simple calculator:
 
 ![Python Logo](https://www.visual-paradigm.com/servlet/editor-content/tutorials/flowchart-tutorial/sites/7/2018/09/flowchart-example.png)
+
+
+## Generating an SSH Key
+
+To securely connect with GitHub (or any other service) via SSH, you'll need to generate an SSH key pair on your system. Below are the steps to generate SSH keys on both Windows (without Git Bash) and Linux.
+
+### Generating SSH Key on Windows (Using Command Prompt or PowerShell)
+
+1. **Open Command Prompt or PowerShell**:
+   Press `Windows + R`, type `cmd` or `powershell`, and press `Enter`.
+
+2. **Generate the SSH Key**:
+   In the terminal, enter the following command:
+
+   ```bash
+   ssh-keygen 
+    ```
+
+
 

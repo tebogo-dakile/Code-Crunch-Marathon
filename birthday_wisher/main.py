@@ -6,14 +6,19 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from datetime import datetime
+
+#my email password
+load_dotenv()
 
 SHEETY_URL = "https://api.sheety.co/c90c96dcbd6020873fe1c8eace10cb0e/birthdays/sheet1"
 response = requests.get(SHEETY_URL)
 data = response.json()
-print(data)
 
+0f73e59a54a74dd459f57e68524f6773251138ba
+
+today = 
 sender_email = "lesedidakile@gmail.com"
-receiver_email = ""
 password = os.getenv("EMAIL_PASSWORD")
 
 message = MIMEMultipart()

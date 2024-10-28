@@ -11,7 +11,7 @@ from datetime import datetime
 load_dotenv()
 
 def get_json_file():
-    SHEETY_URL = "https://api.sheety.co/c90c96dcbd6020873fe1c8eace10cb0e/birthdays/sheet1"
+    SHEETY_URL = os.getenv(SHEETY_URL)    
     response = requests.get(SHEETY_URL)
     return response.json()
 

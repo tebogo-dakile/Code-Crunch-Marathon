@@ -11,12 +11,14 @@ from datetime import datetime
 load_dotenv()
 
 def get_json_file():
+    # put the SHEETY_URl in ur .env and call it
     SHEETY_URL = "https://api.sheety.co/c90c96dcbd6020873fe1c8eace10cb0e/birthdays/sheet1"
     response = requests.get(SHEETY_URL)
     return response.json()
 
 
 def send_email(receiver_email, subject, body):
+    # put ur sender_email in ur .env and call it
     sender_email = "lesedidakile@gmail.com"
     password = os.getenv("EMAIL_PASSWORD")
 

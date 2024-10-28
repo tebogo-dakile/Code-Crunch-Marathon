@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = 
+API_KEY = 4839c5226078e6b068a04f14c6cc74d6
 BASE_URL = 
 
 """
@@ -15,6 +15,7 @@ Weather Codes:
 801-804: Clouds
 """
 city_name = #city name#
+if response.status_code == 200:
 response = requests.get() 
 
 if 500 <= weather_code <= 531:

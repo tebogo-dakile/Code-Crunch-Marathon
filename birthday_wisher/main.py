@@ -11,9 +11,11 @@ from datetime import datetime
 load_dotenv()
 
 def get_json_file():
-    SHEETY_URL = os.getenv(SHEETY_URL)   
-    response = requests.get(SHEETY_URL)
-    return response.json()
+    SHEETY_URL = os.getenv("SHEETY_URL")   
+    auth_header = os.getenv("AUTHORIZATION_HEADER")
+    headers = {"Authorization": auth_header }
+    response = requests.get(SHEETY_URL, headers=headers)
+    return response.json() 
 
 
 def send_email(receiver_email, subject, body):
@@ -34,6 +36,6 @@ if __name__ == "__main__":
     data = get_json_file()
     today = datetime.now().strftime("%d-%m")
 
-    for person in data["Sheet1"]:
-        if person["Birthday"] == today:
-            send_email(person["Email"], "Happy Birthday Bighead", "HBD if you want")
+    for person in data["sheet1"]:
+        if person["birthday"] == today:
+            send_email(person["email"], "Happy Birthday Bighead", "HBD if you want")

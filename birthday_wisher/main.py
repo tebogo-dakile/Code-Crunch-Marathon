@@ -8,29 +8,32 @@ from email.mime.multipart import MIMEMultipart
 
 from datetime import datetime
 
-#my email password
 load_dotenv()
 
-SHEETY_URL = "https://api.sheety.co/c90c96dcbd6020873fe1c8eace10cb0e/birthdays/sheet1"
-response = requests.get(SHEETY_URL)
-data = response.json()
-print(data)
+def get_json_file():
+    SHEETY_URL = "https://api.sheety.co/c90c96dcbd6020873fe1c8eace10cb0e/birthdays/sheet1"
+    response = requests.get(SHEETY_URL)
+    return response.json()
 
-#date
-today = datetime.now().strftime("%d-%m")
 
-#send from my email
-sender_email = "lesedidakile@gmail.com"
-password = os.getenv("EMAIL_PASSWORD")
+def send_email(receiver_email, subject, body):
+    sender_email = "lesedidakile@gmail.com"
+    password = os.getenv("EMAIL_PASSWORD")
 
-message = MIMEMultipart()
-message["From"] = sender_email
-message["To"] = receiver_email
-message["Subject"] = "Happy Birthday BigHead"
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = subject
+    message.attach(MIMEText(body))
 
-body = MIMEText("HBD if you want ke sana.")
-message.attach(body)
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
 
-with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-    server.login(sender_email, password)
-    server.sendmail(sender_email, receiver_email, message.as_string())
+if __name__ == "__main__":
+    data = get_json_file()
+    today = datetime.now().strftime("%d-%m")
+
+    for person in data["sheet1"]:
+        if person["birthday"] == today:
+            send_email(person["email"], "Happy Birthday Bighead", "HBD if you want")
